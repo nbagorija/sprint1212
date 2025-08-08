@@ -1,9 +1,8 @@
 FROM golang:1.22-alpine AS builder
 WORKDIR /app
 COPY . .
-RUN go mod init github.com/nbagorija/sprint1212 && \ 
-    go mod tidy && \                                
-    go build -o app                                 
+RUN go mod tidy && \
+    go build -o app
 
 FROM alpine:latest
 WORKDIR /app
